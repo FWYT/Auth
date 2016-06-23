@@ -3,6 +3,7 @@ package com.example.helloworld;
 import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.secnod.dropwizard.shiro.ShiroConfiguration;
 
 /**
  * Created by vagrant on 6/22/16.
@@ -32,5 +33,15 @@ public class HelloWorldConfiguration extends Configuration{
     @JsonProperty
     public void setDefaultName(String name) {
         this.defaultName = name;
+    }
+
+    public ShiroConfiguration shiro;
+
+    @NotEmpty
+    @JsonProperty
+    private String publicKeyFilename;
+
+    public String getPublicKeyFilename() {
+        return this.publicKeyFilename;
     }
 }
